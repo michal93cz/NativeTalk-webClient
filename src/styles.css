@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+  margin: 0;
+  font-family: Roboto, sans-serif;
+}
+
+md-sidenav-container {
+  height: 100%;
+}
+
+md-card {
+  max-width: 80%;
+  margin: 2em auto;
+}
+
+md-toolbar-row {
+  justify-content: space-between;
+}
+
+.add {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: white;
+  z-index: 999;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}

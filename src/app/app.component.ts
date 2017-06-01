@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MdDialog } from '@angular/material';
+import { AddNoticeComponent } from './components/add-notice.component';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  title = 'NativeTalk';
+
+  constructor(public dialog: MdDialog) { }
+
+  openDialog() {
+    this.dialog.open(AddNoticeComponent);
+  }
 }

@@ -1,0 +1,29 @@
+<md-sidenav-container>
+  <md-toolbar color="primary">
+    <div>
+      <button md-icon-button (click)="sidenav.toggle()">
+        <md-icon>menu</md-icon>
+      </button>
+      <button md-button routerLink="/">NativeTalk</button>
+    </div>
+  </md-toolbar>
+
+  <md-sidenav #sidenav layout="column" mode="side">
+    <md-list>
+      <md-list-item>
+        <button md-button routerLink="/" routerLinkActive="active">Main page</button>
+      </md-list-item>
+      <md-list-item>
+        <button md-button routerLink="/users" routerLinkActive="active">Users</button>
+      </md-list-item>
+    </md-list>
+  </md-sidenav>
+
+  <router-outlet></router-outlet>
+</md-sidenav-container>
+
+<span class="add">
+  <button md-fab (click)="openDialog()">
+    <md-icon>add</md-icon>
+  </button>
+</span>
