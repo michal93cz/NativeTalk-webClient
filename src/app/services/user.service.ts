@@ -4,7 +4,6 @@ import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 import { User } from '../models/user';
-import { Opinion } from '../models/opinion';
 
 @Injectable()
 export class UserService {
@@ -15,13 +14,6 @@ export class UserService {
   private usersUrl = 'api/users';  // URL to web api
 
   constructor(private http: Http) { }
-
-  getUsers(): Promise<User[]> {
-    return this.http.get(this.usersUrl, {headers: this.headers})
-      .toPromise()
-      .then(response => response.json() as User[])
-      .catch(this.handleError);
-  }
 
   getProfile(): Promise<User> {
     return this.http.get(this.usersUrl + '/profile', {headers: this.headers})
@@ -35,14 +27,6 @@ export class UserService {
     return this.http.get(url, {headers: this.headers})
       .toPromise()
       .then(response => response.json() as User)
-      .catch(this.handleError);
-  }
-
-  getOpinions(id: string): Promise<Opinion[]> {
-    const url = `${this.usersUrl}/${id}/opinions`;
-    return this.http.get(url, {headers: this.headers})
-      .toPromise()
-      .then(response => response.json() as Opinion[])
       .catch(this.handleError);
   }
 

@@ -31,6 +31,22 @@ export class NoticeService {
       .catch(this.handleError);
   }
 
+  getMyNotices(): Promise<Notice[]> {
+    let url = this.noticesUrl + `/my`;
+    return this.http.get(url, {headers: this.headers})
+      .toPromise()
+      .then(response => response.json() as Notice[])
+      .catch(this.handleError);
+  }
+
+  delete(id: number): Promise<void> {
+    const url = `${this.noticesUrl}/${id}`;
+    return this.http.delete(url, {headers: this.headers})
+      .toPromise()
+      .then(() => null)
+      .catch(this.handleError);
+  }
+
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error);
     return Promise.reject(error.message || error);

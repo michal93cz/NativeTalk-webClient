@@ -18,6 +18,10 @@ md-toolbar-row {
   justify-content: space-between;
 }
 
+h1, h2, h3 {
+  text-align: center;
+}
+
 .add {
   position: fixed;
   bottom: 20px;
@@ -28,4 +32,10 @@ md-toolbar-row {
 
 .spacer {
   flex: 1 1 auto;
+}
+
+.default-avatar {
+  font-size: 40px;
+  height: 40px;
+  width: 40px;
 }

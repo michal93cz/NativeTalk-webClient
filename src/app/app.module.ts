@@ -11,11 +11,10 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { NoticesComponent } from './components/notices.component';
-import { UsersComponent } from './components/users.component';
 import { UserDetailComponent } from './components/user-detail.component';
-import { OpinionsComponent } from './components/opinions.component';
 import { ProfileComponent } from './components/profile.component';
 import { AddNoticeComponent } from './components/add-notice.component';
+import { MyNoticesComponent } from './components/my-notices.component';
 
 import { NoticeService } from './services/notice.service';
 import { UserService } from './services/user.service';
@@ -24,11 +23,10 @@ import { UserService } from './services/user.service';
   declarations: [
     AppComponent,
     NoticesComponent,
-    UsersComponent,
-    OpinionsComponent,
     UserDetailComponent,
     ProfileComponent,
-    AddNoticeComponent
+    AddNoticeComponent,
+    MyNoticesComponent
   ],
   entryComponents: [
     AddNoticeComponent
