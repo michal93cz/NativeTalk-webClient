@@ -1,6 +1,9 @@
 export class Opinion {
-  value: number;
-  description: string;
-  notice: string;
-  creator: string;
+  constructor(
+    value: number,
+    description: string,
+    notice: string,
+    _id?: string,
+    creator?: string
+  ) { }
 }

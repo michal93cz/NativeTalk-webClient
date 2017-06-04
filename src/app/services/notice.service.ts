@@ -8,7 +8,9 @@ import { Notice } from '../models/notice';
 @Injectable()
 export class NoticeService {
 
-  private headers = new Headers({'Authorization': 'Bearer EAAF0TQETtIUBAKXf7vgsjdBTgwu8wbKXvRoKzOZCqBkeribZBF2rG6MY6REYFZBq2ChctZAomDSFMOKdDT5MeLatgupu96f6Cb9yQ5W2ATRchN7wfekaxaQ2WT6V9MzK14m1LYbZByvXLEiK7I73MQKkibGhUa6RQbp6SZBKPD1AZDZD'});
+  private headers = new Headers({'Authorization': 'Bearer EAAF0TQETtIUBAKXf7vgsjdBTgwu8wbKXvRoKzOZCqBkeribZBF2rG6MY6REYFZBq2ChctZAomDSFMOKdDT5MeLatgupu96f6Cb9yQ5W2ATRchN7wfekaxaQ2WT6V9MzK14m1LYbZByvXLEiK7I73MQKkibGhUa6RQbp6SZBKPD1AZDZD',
+    'Content-Type': 'application/json'});
+
   private noticesUrl = 'api/notices';  // URL to web api
 
   constructor(private http: Http) { }
@@ -21,11 +23,11 @@ export class NoticeService {
       .catch(this.handleError);
   }
 
-  create(notice: Notice): Promise<Notice> {
+  create(notice: Notice): Promise<{}> {
     return this.http
       .post(this.noticesUrl, JSON.stringify(notice), {headers: this.headers})
       .toPromise()
-      .then(res => res.json().data as Notice)
+      .then(res => res)
       .catch(this.handleError);
   }
 

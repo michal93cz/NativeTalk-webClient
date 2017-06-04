@@ -9,7 +9,9 @@ import { Opinion } from '../models/opinion';
 @Injectable()
 export class UserService {
 
-  private headers = new Headers({'Authorization': 'Bearer EAAF0TQETtIUBAKXf7vgsjdBTgwu8wbKXvRoKzOZCqBkeribZBF2rG6MY6REYFZBq2ChctZAomDSFMOKdDT5MeLatgupu96f6Cb9yQ5W2ATRchN7wfekaxaQ2WT6V9MzK14m1LYbZByvXLEiK7I73MQKkibGhUa6RQbp6SZBKPD1AZDZD'});
+  private headers = new Headers({'Authorization': 'Bearer EAAF0TQETtIUBAKXf7vgsjdBTgwu8wbKXvRoKzOZCqBkeribZBF2rG6MY6REYFZBq2ChctZAomDSFMOKdDT5MeLatgupu96f6Cb9yQ5W2ATRchN7wfekaxaQ2WT6V9MzK14m1LYbZByvXLEiK7I73MQKkibGhUa6RQbp6SZBKPD1AZDZD',
+    'Content-Type': 'application/json'});
+
   private usersUrl = 'api/users';  // URL to web api
 
   constructor(private http: Http) { }

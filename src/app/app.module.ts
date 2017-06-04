@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from '@angular/material';
+import { MaterialModule, MdNativeDateModule } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -39,7 +39,8 @@ import { UserService } from './services/user.service';
     HttpModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    MdNativeDateModule
   ],
   providers: [
     NoticeService,
