@@ -35,7 +35,8 @@ import { NoticeService } from "../services/notice.service";
           <md-list-item>
             <md-select name="city" placeholder="City" [(ngModel)]="notice.city" #city="ngModel" required>
                <md-option value="Poznan">Poznan</md-option>
-               <md-option value="Warszawa">Warszawa</md-option>
+               <md-option value="Warsaw">Warsaw</md-option>
+               <md-option value="Berlin">Berlin</md-option>
             </md-select>
           </md-list-item>
           

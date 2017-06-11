@@ -27,6 +27,8 @@ import { UserService } from '../services/user.service';
       </md-card-actions>
     </md-card>
     
+    <h2>Feedback about me:</h2>
+    
     <md-card *ngFor="let opinion of user.opinions">
       <md-card-title>{{ opinion.value }}</md-card-title>
       <md-card-content>
@@ -34,6 +36,10 @@ import { UserService } from '../services/user.service';
           {{ opinion.description }}
         </p>
       </md-card-content>
+      <md-card-actions>
+        <button md-raised-button color="primary">Show notice</button>
+        <button md-raised-button>Show author</button>
+      </md-card-actions>
     </md-card>
   `
 })
