@@ -38,7 +38,7 @@ import { UserService } from '../services/user.service';
       </md-card-content>
       <md-card-actions>
         <button md-raised-button color="primary">Show notice</button>
-        <button md-raised-button>Show author</button>
+        <button md-raised-button [routerLink]="['/user', opinion.creator]">Show author</button>
       </md-card-actions>
     </md-card>
   `

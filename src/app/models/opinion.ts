@@ -3,7 +3,7 @@ export class Opinion {
     value: number,
     description: string,
     notice: string,
-    _id?: string,
-    creator?: string
+    _id: string,
+    creator: string
   ) { }
 }

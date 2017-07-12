@@ -1,8 +1,22 @@
 export class Notice {
-  _id: number;
+  _id: string;
+  title: string;
+  description: string;
+  language: string;
+  city: string;
+  type: string;
+  owner: {
+    _id: string;
+    name: string;
+    average_opinion: number
+  };
+  date: string;
+  interested_users: [ string ];
+  selected_user: string;
+  created_at: string;
 
   constructor(
-    _id?: number,
+    _id?: string,
     title?: string,
     description?: string,
     language?: string,
@@ -15,8 +29,6 @@ export class Notice {
     date?: string,
     interested_users?: [ string ],
     selected_user?: string,
-    created_at?: string,
-    district?: string,
-    country?: string
+    created_at?: string
   ) {  }
 }

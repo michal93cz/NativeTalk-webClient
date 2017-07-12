@@ -15,6 +15,7 @@ import { UserDetailComponent } from './components/user-detail.component';
 import { ProfileComponent } from './components/profile.component';
 import { AddNoticeComponent } from './components/add-notice.component';
 import { MyNoticesComponent } from './components/my-notices.component';
+import { MyAppliesComponent } from './components/my-applies.component';
 
 import { NoticeService } from './services/notice.service';
 import { UserService } from './services/user.service';
@@ -26,7 +27,8 @@ import { UserService } from './services/user.service';
     UserDetailComponent,
     ProfileComponent,
     AddNoticeComponent,
-    MyNoticesComponent
+    MyNoticesComponent,
+    MyAppliesComponent
   ],
   entryComponents: [
     AddNoticeComponent

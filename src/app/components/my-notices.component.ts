@@ -7,6 +7,7 @@ import { NoticeService } from '../services/notice.service';
   selector: 'my-notices',
   template: `
     <h1>My notices</h1>
+    <p *ngIf="!notices">No your notices yet</p>
     <md-card *ngFor="let notice of notices">
       <md-card-title>{{ notice.title }}</md-card-title>
       <md-card-subtitle>

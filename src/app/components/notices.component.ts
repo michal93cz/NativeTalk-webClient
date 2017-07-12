@@ -6,6 +6,24 @@ import { NoticeService } from '../services/notice.service';
 @Component({
   selector: 'notices',
   template: `
+    <md-grid-list class="filters" cols="3" rowHeight="70px">
+      <md-grid-tile>
+        <md-select name="language" placeholder="Language" [(ngModel)]="query.language" (change)="queryReloaded()">
+          <md-option value="English">English</md-option>
+          <md-option value="Polish">Polish</md-option>
+        </md-select>
+      </md-grid-tile>
+      <md-grid-tile>
+        <md-select name="city" placeholder="City" [(ngModel)]="query.city" (change)="queryReloaded()">
+          <md-option value="Poznan">Poznan</md-option>
+          <md-option value="Warsaw">Warsaw</md-option>
+          <md-option value="Berlin">Berlin</md-option>
+        </md-select>
+      </md-grid-tile>
+      <md-grid-tile>
+        <button md-button (click)="resetQuery()">Reset</button>
+      </md-grid-tile>
+    </md-grid-list>
     <md-tab-group md-stretch-tabs="yes">
       <md-tab label="Native Speakers">
         <md-card *ngFor="let notice of nativeNotices">
@@ -28,7 +46,7 @@ import { NoticeService } from '../services/notice.service';
             </p>
           </md-card-content>
           <md-card-actions>
-            <button md-raised-button color="accent">Add me</button>
+            <button md-raised-button color="accent" (click)="applyToNotice(notice)">Add me</button>
           </md-card-actions>
         </md-card>
       </md-tab>
@@ -54,7 +72,7 @@ import { NoticeService } from '../services/notice.service';
             </p>
           </md-card-content>
           <md-card-actions>
-            <button md-raised-button color="accent">Add me</button>
+            <button md-raised-button color="accent" (click)="applyToNotice(notice)">Add me</button>
           </md-card-actions>
         </md-card>
       </md-tab>
@@ -65,14 +83,40 @@ import { NoticeService } from '../services/notice.service';
 export class NoticesComponent implements OnInit {
   nativeNotices: Notice[] = [];
   hostNotices: Notice[] = [];
+  query = {
+    language: '',
+    city: ''
+  };
 
   constructor(private noticeService: NoticeService) { }
 
   ngOnInit(): void {
-    this.noticeService.getNotices('native')
+    this.queryReloaded();
+  }
+
+  applyToNotice(notice: Notice): void {
+    this.noticeService
+      .apply(notice._id)
+      .then(() => {
+        this.nativeNotices = this.nativeNotices.filter(h => h !== notice);
+        this.hostNotices =  this.hostNotices.filter(h => h !== notice);
+      });
+  }
+
+  queryReloaded() {
+    this.noticeService.getNotices('native', this.query.language, this.query.city)
       .then(notices => this.nativeNotices = notices);
 
-    this.noticeService.getNotices('host')
+    this.noticeService.getNotices('host', this.query.language, this.query.city)
       .then(notices => this.hostNotices = notices);
+  }
+
+  resetQuery() {
+    this.query = {
+      language: '',
+      city: ''
+    };
+
+    this.queryReloaded();
   }
 }
